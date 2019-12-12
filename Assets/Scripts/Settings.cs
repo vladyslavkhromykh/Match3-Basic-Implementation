@@ -8,13 +8,22 @@ namespace Match3
     [CreateAssetMenu(order = 0, fileName = "Settings", menuName = "Custom/Settings")]
     public sealed class Settings : ScriptableObject
     {
-        [Range(5, 10)]
+        [Range(5, 8)]
         [SerializeField]
-        private int boardSize;
+        private int rowsCount;
+
+        [Range(5, 8)]
+        [SerializeField]
+        private int columnsCount;
         
-        public int BoardSize
+        public int RowsCount
         {
-            get { return boardSize; }
+            get { return rowsCount; }
+        }
+        
+        public int ColumnsCount
+        {
+            get { return columnsCount; }
         }
         
         [SerializeField]

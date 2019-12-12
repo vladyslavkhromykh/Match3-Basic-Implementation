@@ -11,10 +11,30 @@ namespace Match3
         
         public Board(Settings settings, GemDistributionAlgorithm distribution)
         {
-            this.cells = new Cell[settings.BoardSize, settings.BoardSize];
+            this.cells = new Cell[settings.RowsCount, settings.ColumnsCount];
             this.distribution = distribution;
 
             FillCells();
+            
+            EventManager.RaiseBoardCreated(this);
+        }
+
+        public Cell this[int row, int column]
+        {
+            get
+            {
+                return this.cells[row, column];
+            }
+        }
+
+        public int Rows()
+        {
+            return cells.GetLength(0);
+        }
+        
+        public int Columns()
+        {
+            return cells.GetLength(1);
         }
 
         private void FillCells()

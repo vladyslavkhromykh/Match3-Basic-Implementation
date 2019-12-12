@@ -12,20 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4195619d632e4c4696231bef3a58d0f, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  boardSize: 5
+  rowsCount: 8
+  columnsCount: 6
   gemsData:
-  - sprite: {fileID: 0}
+  - sprite: {fileID: 9045365635691427063, guid: 1860d38fcc300a14d92e81d55270eaad,
+      type: 3}
     weight: 1
     type: 0
-  - sprite: {fileID: 0}
+  - sprite: {fileID: -3498438905508038823, guid: 1860d38fcc300a14d92e81d55270eaad,
+      type: 3}
     weight: 1
     type: 1
-  - sprite: {fileID: 0}
+  - sprite: {fileID: 293023630259784747, guid: 1860d38fcc300a14d92e81d55270eaad, type: 3}
     weight: 2
     type: 2
-  - sprite: {fileID: 0}
+  - sprite: {fileID: -6058453422683100928, guid: 1860d38fcc300a14d92e81d55270eaad,
+      type: 3}
     weight: 0.5
     type: 3
-  - sprite: {fileID: 0}
+  - sprite: {fileID: -2880068134806958905, guid: 1860d38fcc300a14d92e81d55270eaad,
+      type: 3}
     weight: 0.1
     type: 4
