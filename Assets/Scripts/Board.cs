@@ -23,10 +23,40 @@ namespace Match3
             {
                 for (int column = 0; column < this.cells.GetLength(1); column++)
                 {
-                    GemType type = this.distribution.GetNext();
+                    Cell leftCell = column > 0 ? this.cells[row, column - 1] : null;
+                    Cell topCell = row > 0 ? this.cells[row - 1, column] : null;
+                    
+                    GemType cellType = GemType.None;
+                    
+                    GemType type;
+                    do
+                    {
+                        type = this.distribution.GetNext();
+                    } while (GemTypeSameAsOneOfNeighborCells(type, leftCell, topCell));
+
                     this.cells[row, column] = new Cell(type);
                 }
             } 
+        }
+
+        private bool GemTypeSameAsOneOfNeighborCells(GemType type, Cell leftCell, Cell topCell)
+        {
+            if (leftCell != null && topCell != null)
+            {
+                return type == leftCell.Type || type == topCell.Type;
+            }
+            
+            if (leftCell != null)
+            {
+                return type == leftCell.Type;
+            }
+            
+            if (topCell != null)
+            {
+                return type == topCell.Type;
+            }
+
+            return false;
         }
     }
 }
