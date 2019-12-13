@@ -155,7 +155,7 @@ namespace Match3
             }
         }
 
-        private ValueTuple<bool, bool[,]> GetHorizontalMatchingMatrix()
+        public ValueTuple<bool, bool[,]> GetHorizontalMatchingMatrix()
         {
             bool[,] matchingMatrix = new bool[this.cells.GetLength(0), this.cells.GetLength(1)];
             bool isAnyMatched = false;
@@ -213,28 +213,6 @@ namespace Match3
             }
 
             return false;
-        }
-
-        private IEnumerable<Cell> RowsIterator()
-        {
-            for (int row = 0; row < this.cells.GetLength(0); row++)
-            {
-                for (int column = 0; column < this.cells.GetLength(1); column++)
-                {
-                    yield return this.cells[row, column];
-                }
-            }
-        }
-        
-        private IEnumerable<Cell> ColumnsIterator()
-        {
-            for (int column = 0; column < this.cells.GetLength(1); column++)
-            {
-                for (int row = 0; row < this.cells.GetLength(0); row++)
-                {
-                    yield return this.cells[row, column];
-                }
-            }
         }
 
         public IEnumerator<Cell> GetEnumerator()

@@ -63,12 +63,6 @@ namespace  Match3
                 board.RaiseChanged();
             }
         }
-
-        private void SwapCells(Cell cell1, Cell cell2)
-        {
-            Cell tempCell1 = cell1;
-            board[cell1.Row, cell2.Column] = cell2;
-        }
     }
 
 }
