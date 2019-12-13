@@ -7,23 +7,18 @@ namespace Match3
     {
         public static event Action NewGameRequest = delegate {};
 
+        public static event Action<Cell> CellViewClicked = delegate { };
+
+        
         public static void RaiseNewGameRequest()
         {
             NewGameRequest();
         }
+
         
-        public static event Action<Board> BoardCreated = delegate { };
-
-        public static void RaiseBoardCreated(Board board)
+        public static void RaiseCellViewClicked(Cell cell)
         {
-            BoardCreated(board);
-        }
-
-        public static event Action<GameSession> SessionCreated = delegate { };
-
-        public static void RaiseSessionCreated(GameSession gameSession)
-        {
-            SessionCreated(gameSession);
+            CellViewClicked(cell);
         }
     }
 

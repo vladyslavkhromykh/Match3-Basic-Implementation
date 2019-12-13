@@ -10,25 +10,27 @@ namespace Match3
     {
         [SerializeField]
         private Settings settings;
+
+        [SerializeField] private RectTransform gameplayCanvas;
+
+        [SerializeField]
+        private BoardController boardControllerPrefab;
         
-        private GameSession gameSession;
+        private BoardController boardController;
         
         private void Awake()
         {
-            
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                var session = new GameSession(settings);
-            }
+            EventManager.NewGameRequest += OnNewGameRequest;
         }
 
         private void OnNewGameRequest()
         {
-            
+            if (this.boardController != null)
+            {
+                this.boardController.Dispose();
+            }
+            this.boardController = Instantiate<BoardController>(boardControllerPrefab);
+            this.boardController.transform.SetParent(gameplayCanvas, false);
         }
     }
 }

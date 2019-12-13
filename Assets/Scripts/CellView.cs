@@ -1,16 +1,30 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Match3.View
 {
-    public sealed class CellView : MonoBehaviour
+    public sealed class CellView : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField]
         private Image gemIcon;
 
-        public void SetIcon(Sprite sprite)
+        [SerializeField]
+        private Image selectedMark;
+
+        private Cell cell;
+        
+        public void UpdateView(Cell cell, Settings settings)
         {
-            gemIcon.sprite = sprite;
+            this.cell = cell;
+            this.selectedMark.enabled = cell.IsSelected;
+            this.gemIcon.sprite = settings.GemsData.Single(data => data.type == this.cell.Type).sprite;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            EventManager.RaiseCellViewClicked((this.cell));
         }
     }
 }
