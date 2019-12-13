@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   rowsCount: 8
-  columnsCount: 6
+  columnsCount: 8
   gemsData:
   - sprite: {fileID: 9045365635691427063, guid: 1860d38fcc300a14d92e81d55270eaad,
       type: 3}

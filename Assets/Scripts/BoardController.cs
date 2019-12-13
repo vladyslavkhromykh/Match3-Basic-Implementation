@@ -54,6 +54,7 @@ namespace  Match3
                 if (clickedCell.IsNeighbor(alreadySelectedCell))
                 {
                     board.SwapCells(alreadySelectedCell, clickedCell);
+                    board.CheckMatching();
                 }
                 else
                 {

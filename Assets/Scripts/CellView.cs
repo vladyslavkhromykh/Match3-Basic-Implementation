@@ -19,7 +19,11 @@ namespace Match3.View
         {
             this.cell = cell;
             this.selectedMark.enabled = cell.IsSelected;
-            this.gemIcon.sprite = settings.GemsData.Single(data => data.type == this.cell.Type).sprite;
+            this.gemIcon.enabled = this.cell.Type != GemType.None;
+            if (this.cell.Type != GemType.None)
+            {
+                this.gemIcon.sprite = settings.GemsData.Single(data => data.type == this.cell.Type).sprite;
+            }
         }
 
         public void OnPointerClick(PointerEventData eventData)

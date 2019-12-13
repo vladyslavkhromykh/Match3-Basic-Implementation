@@ -41,12 +41,6 @@ namespace Match3
         public Cell(int row, int column, GemType gemType)
         {
             SetAddress(row, column);
-            
-            if (gemType == GemType.None)
-            {
-                throw new ArgumentException(string.Format("Cell should not be initialized with {0}.", GemType.None));
-            }
-            
             this.type = gemType;
         }
 
